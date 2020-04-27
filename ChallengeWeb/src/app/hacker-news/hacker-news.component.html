@@ -9,11 +9,11 @@
     
 
     <div class="ui fluid icon focus input" [ngClass]="{'loading': loading }">
-        <input type="text" placeholder="Search..." (inputsearch)="search=$event; load()">
+        <input type="text" placeholder="Search..." (inputsearch)="search=$event; load()" >
         <i class="search icon"></i>
     </div>
 
-    <div class="ui basic segment">
+    <div class="ui basic segment" [ngClass]="{'loading': loading }" *ngIf="list.length>0">
         <div class="ui animated list">
             <div class="item" *ngFor="let item of list">
                 <a class="header" (click)="checkLink(item)">{{item.title}}</a>
@@ -24,12 +24,12 @@
         </div>
     </div>
 
-    <div class="ui placeholder segment" *ngIf="list.length==0">
+    <div class="ui placeholder segment" *ngIf="list.length==0" [ngClass]="{'loading': loading }">
 
-        <div class="ui icon header" *ngIf="loading">
+        <!-- <div class="ui icon header" *ngIf="loading">
             <i class="search icon"></i>
             <span>Searching...</span>
-        </div>
+        </div> -->
 
         <div class="ui icon header" *ngIf="list.length==0 && !loading">
             <i class="exclamation circle icon"></i>
