@@ -25,12 +25,7 @@
     </div>
 
     <div class="ui placeholder segment" *ngIf="list.length==0" [ngClass]="{'loading': loading }">
-
-        <!-- <div class="ui icon header" *ngIf="loading">
-            <i class="search icon"></i>
-            <span>Searching...</span>
-        </div> -->
-
+        
         <div class="ui icon header" *ngIf="list.length==0 && !loading">
             <i class="exclamation circle icon"></i>
             <span>No Records Found</span>
