@@ -1,0 +1,38 @@
+.ui.container {
+    padding-top: 20px;
+
+    .segment {
+        padding: 0px;
+        .list {
+            .item {
+                margin-bottom: 10px;
+                padding: 7px;
+                border-radius: 4px;
+                background: rgb(228, 228, 228);
+                .header {
+                    font-size: 21px;
+                    padding-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    .ui.breadcrumb{
+        margin-bottom: 20px;
+        .active{
+            font-size: 20px;
+        }
+    }
+}
+
+.url-missed{
+    color: rgb(156, 43, 43) !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .item {
+        .header {
+            font-size: 14px !important;
+        }
+    }
+}

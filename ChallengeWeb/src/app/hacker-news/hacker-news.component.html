@@ -1,0 +1,51 @@
+<div class="ui container">
+
+    <h1 class="ui header">
+        <i class="newspaper outline icon"></i>
+        <div class="content">
+            Hacker News
+        </div>
+    </h1>
+    
+
+    <div class="ui fluid icon focus input" [ngClass]="{'loading': loading }">
+        <input type="text" placeholder="Search..." (inputsearch)="search=$event; load()">
+        <i class="search icon"></i>
+    </div>
+
+    <div class="ui basic segment">
+        <div class="ui animated list">
+            <div class="item" *ngFor="let item of list">
+                <a class="header" (click)="checkLink(item)">{{item.title}}</a>
+                <div class="description">
+                    <strong>Author:</strong> {{item.by}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui placeholder segment" *ngIf="list.length==0">
+
+        <div class="ui icon header" *ngIf="loading">
+            <i class="search icon"></i>
+            <span>Searching...</span>
+        </div>
+
+        <div class="ui icon header" *ngIf="list.length==0 && !loading">
+            <i class="exclamation circle icon"></i>
+            <span>No Records Found</span>
+        </div>
+
+    </div>
+
+
+    <div class="ui breadcrumb">
+        <a class="section" [ngClass]="{'active': take == 10}" (click)="changeTop(10)">Top 10</a>
+        <span class="divider">/</span>
+        <a class="section" [ngClass]="{'active': take == 30}" (click)="changeTop(30)">Top 30</a>
+        <span class="divider">/</span>
+        <a class="section" [ngClass]="{'active': take == 50}" (click)="changeTop(50)">Top 50</a>
+        <span class="divider">/</span>
+        <a class="section" [ngClass]="{'active': take == 0}" (click)="changeTop(0)">All</a>
+    </div>
+</div>
